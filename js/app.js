@@ -944,7 +944,6 @@ var gf = state.globalMode ? (Number(state.gFeeAdd)||0) : 0;
 var gt = state.globalMode ? (Math.max(1,Math.floor(Number(state.gTicks)||10))) : 10;
 var rows = [];
 rows.push(["国内期货手续费·保证金一览表（数据仅供参考，不构成投资建议）"]);
-rows.push(["期货开户优惠：手续费可降至交易所标准附近 ｜ 微信：qhcg66 ｜ 网址：https://qhcg66.github.io/shouxufei/"]);
 rows.push([]);
 rows.push(["交易所","合约名称","合约代码","现价","成交量","保证金/元","买开保证金%","卖开保证金%","开仓手续费","平昨手续费","平今手续费","开+平/元","每跳毛利","每跳净利","回报率(平今)%","回报率(平昨)%","保证金档位","备注"]);
 list.forEach(function(c){
@@ -975,13 +974,6 @@ setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 100);
 function feeText(c, kind, addPct){
 var v = c[kind]||0;
 return c.feeType==="fixed" ? trim0(v)+"元" : fmtNum(feeAmount(c,c.price,kind,addPct||0),2)+"元（万分之"+trim0(v)+"）";
-}
-function fallbackCopy(text){
-var ta = document.createElement("textarea");
-ta.value = text; ta.style.position="fixed"; ta.style.opacity="0";
-document.body.appendChild(ta); ta.select();
-try{ document.execCommand("copy"); }catch(e){}
-ta.remove();
 }
 /* 手机端：点击品种弹出详情（含被隐藏的列） */
 function showDetail(code){
@@ -1163,23 +1155,6 @@ document.querySelectorAll("[data-close]").forEach(function(el){
 el.addEventListener("click", function(){ $(el.getAttribute("data-close")).classList.remove("show"); });
 });
 $("feeModal").addEventListener("click", function(e){ if(e.target===this) this.classList.remove("show"); });
-var btnGroup = $("btnOpenGroup");
-if(btnGroup){ btnGroup.addEventListener("click", function(){ $("groupModal").classList.add("show"); }); }
-var adOpeners = ["btnFloatAd","btnOpenAd"];
-adOpeners.forEach(function(id){
-var el = $(id);
-if(el){ el.addEventListener("click", function(){ $("adModal").classList.add("show"); }); }
-});
-document.querySelectorAll("[data-copy-wechat]").forEach(function(btn){
-btn.addEventListener("click", function(){
-var w = btn.getAttribute("data-copy-wechat") || "";
-var orig = btn.textContent;
-var done = function(){ btn.textContent = "已复制 ✓"; setTimeout(function(){ btn.textContent = orig; }, 2000); };
-if(navigator.clipboard && navigator.clipboard.writeText){
-navigator.clipboard.writeText(w).then(done, function(){ fallbackCopy(w); done(); });
-} else { fallbackCopy(w); done(); }
-});
-});
 ["calcPrice","calcLots","calcMarginAdd","calcFeeAdd","calcTicks","calcPoints"].forEach(function(id){
 $(id).addEventListener("change", recalc);
 $(id).addEventListener("input", function(){
