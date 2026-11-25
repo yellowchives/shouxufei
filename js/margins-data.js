@@ -1,12 +1,12 @@
 /* ============================================================
  * 逐合约真实保证金（交易所官方结算参数，脚本自动生成，勿手改）
- * 数据来源：上期所 20261124；能源中心 20261124；郑商所 20261124；广期所 latest；中金所 20261123
+ * 数据来源：上期所 20261125；能源中心 20261125；郑商所 20261124；广期所 latest；中金所 20261123
  * 由 update-margins.js 自动生成（GitHub Actions 每日定时更新）。
  * 字段：m=投机保证金%, h=套保保证金%, fee=手续费, feeType=fixed|rate, feeToday=平今手续费
  * 说明：标注“沿用”的交易所表示本次抓取失败，保留上一次成功数据；大商所由九期网数据补全。
  * ============================================================ */
-var MARGIN_LIVE_DATE = "2026-11-24";
-var MARGIN_LIVE_SOURCES = ["上期所 20261124","能源中心 20261124","郑商所 20261124","广期所 latest","中金所 20261123"];
+var MARGIN_LIVE_DATE = "2026-11-25";
+var MARGIN_LIVE_SOURCES = ["上期所 20261125","能源中心 20261125","郑商所 20261124","广期所 latest","中金所 20261123"];
 var MARGIN_LIVE = {
   "ad2612": {m: 10, h: 10},
   "ad2701": {m: 10, h: 9},
@@ -147,7 +147,7 @@ var MARGIN_LIVE = {
   "cy709": {m: 5, fee: 1, feeType: "fixed", feeToday: 0},
   "cy710": {m: 5, fee: 1, feeType: "fixed", feeToday: 0},
   "cy711": {m: 5, fee: 1, feeType: "fixed", feeToday: 0},
-  "ec2611": {m: 20, h: 20},
+  "ec2611": {m: 30, h: 30},
   "ec2612": {m: 22, h: 22},
   "ec2701": {m: 17, h: 17},
   "ec2703": {m: 22, h: 22},
@@ -166,7 +166,7 @@ var MARGIN_LIVE = {
   "fg709": {m: 9, fee: 2, feeType: "fixed", feeToday: 2},
   "fg710": {m: 9, fee: 2, feeType: "fixed", feeToday: 2},
   "fg711": {m: 9, fee: 2, feeType: "fixed", feeToday: 2},
-  "fu2612": {m: 20, h: 19},
+  "fu2612": {m: 20, h: 20},
   "fu2701": {m: 20, h: 19},
   "fu2702": {m: 16, h: 15},
   "fu2703": {m: 16, h: 15},
@@ -236,7 +236,7 @@ var MARGIN_LIVE = {
   "lc2709": {m: 15, h: 14},
   "lc2710": {m: 15, h: 14},
   "lc2711": {m: 15, h: 14},
-  "lu2612": {m: 20, h: 19},
+  "lu2612": {m: 20, h: 20},
   "lu2701": {m: 20, h: 19},
   "lu2702": {m: 16, h: 15},
   "lu2703": {m: 16, h: 15},
@@ -458,7 +458,7 @@ var MARGIN_LIVE = {
   "sa709": {m: 8, fee: 1, feeType: "rate", feeToday: 1},
   "sa710": {m: 8, fee: 1, feeType: "rate", feeToday: 1},
   "sa711": {m: 8, fee: 1, feeType: "rate", feeToday: 1},
-  "sc2612": {m: 20, h: 19},
+  "sc2612": {m: 20, h: 20},
   "sc2701": {m: 20, h: 19},
   "sc2702": {m: 16, h: 15},
   "sc2703": {m: 16, h: 15},
